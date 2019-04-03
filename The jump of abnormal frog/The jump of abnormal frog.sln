@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TopK问题", "TopK问题\TopK问题.vcxproj", "{3658BA9F-26AC-4485-9006-F244379AA5BE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "The jump of abnormal frog", "The jump of abnormal frog\The jump of abnormal frog.vcxproj", "{0B856F76-B7A1-422F-B9AB-84ADB277FA45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3658BA9F-26AC-4485-9006-F244379AA5BE}.Debug|Win32.ActiveCfg = Debug|Win32
-		{3658BA9F-26AC-4485-9006-F244379AA5BE}.Debug|Win32.Build.0 = Debug|Win32
-		{3658BA9F-26AC-4485-9006-F244379AA5BE}.Release|Win32.ActiveCfg = Release|Win32
-		{3658BA9F-26AC-4485-9006-F244379AA5BE}.Release|Win32.Build.0 = Release|Win32
+		{0B856F76-B7A1-422F-B9AB-84ADB277FA45}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0B856F76-B7A1-422F-B9AB-84ADB277FA45}.Debug|Win32.Build.0 = Debug|Win32
+		{0B856F76-B7A1-422F-B9AB-84ADB277FA45}.Release|Win32.ActiveCfg = Release|Win32
+		{0B856F76-B7A1-422F-B9AB-84ADB277FA45}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
