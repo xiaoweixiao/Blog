@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "static mem", "static mem\static mem.vcxproj", "{5CE4E2EF-3178-48C4-8A00-C734071108AF}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "American festival", "American festival\American festival.vcxproj", "{57A54611-D434-468E-82C2-7D21C4AD7DDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5CE4E2EF-3178-48C4-8A00-C734071108AF}.Debug|Win32.ActiveCfg = Debug|Win32
-		{5CE4E2EF-3178-48C4-8A00-C734071108AF}.Debug|Win32.Build.0 = Debug|Win32
-		{5CE4E2EF-3178-48C4-8A00-C734071108AF}.Release|Win32.ActiveCfg = Release|Win32
-		{5CE4E2EF-3178-48C4-8A00-C734071108AF}.Release|Win32.Build.0 = Release|Win32
+		{57A54611-D434-468E-82C2-7D21C4AD7DDA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{57A54611-D434-468E-82C2-7D21C4AD7DDA}.Debug|Win32.Build.0 = Debug|Win32
+		{57A54611-D434-468E-82C2-7D21C4AD7DDA}.Release|Win32.ActiveCfg = Release|Win32
+		{57A54611-D434-468E-82C2-7D21C4AD7DDA}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

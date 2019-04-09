@@ -11,8 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{5CE4E2EF-3178-48C4-8A00-C734071108AF}</ProjectGuid>
-    <RootNamespace>staticmem</RootNamespace>
+    <ProjectGuid>{508C7C96-401F-470F-A59E-CFFA56AED98A}</ProjectGuid>
+    <RootNamespace>maze</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -64,7 +64,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="static mem.cpp" />
+    <ClCompile Include="maze.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

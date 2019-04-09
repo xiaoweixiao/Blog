@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="static mem.cpp">
+    <ClCompile Include="maze.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
