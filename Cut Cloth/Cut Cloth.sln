@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cut Cloth", "Cut Cloth\Cut Cloth.vcxproj", "{A35C531C-29DF-4FD2-A0CE-C29B1D28264F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A35C531C-29DF-4FD2-A0CE-C29B1D28264F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A35C531C-29DF-4FD2-A0CE-C29B1D28264F}.Debug|Win32.Build.0 = Debug|Win32
+		{A35C531C-29DF-4FD2-A0CE-C29B1D28264F}.Release|Win32.ActiveCfg = Release|Win32
+		{A35C531C-29DF-4FD2-A0CE-C29B1D28264F}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
