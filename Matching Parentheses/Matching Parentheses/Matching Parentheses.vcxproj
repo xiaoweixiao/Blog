@@ -11,8 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{44DCBB10-939C-4674-BF6B-1489AAED55FF}</ProjectGuid>
-    <RootNamespace>CountPalindrome</RootNamespace>
+    <ProjectGuid>{B6BB7DBF-41FB-443C-A439-0C7DB80140E4}</ProjectGuid>
+    <RootNamespace>MatchingParentheses</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
