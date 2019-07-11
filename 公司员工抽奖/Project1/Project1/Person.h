@@ -2,15 +2,49 @@
 #include<vector>
 #include<string>
 #include<map>
+#include <sstream>
 #include<fstream>
 using namespace std;
 struct Person {
+	static Person CreateNode()
+	{
+		Person p;
+		cout << "请输入员工编号：";
+		cin >> p.job_num;
+		cout << "亲输入员工姓名：";
+		cin >> p.name;
+		cout << "请输入员工手机号：";
+		cin >> p.phone_number;
+		return p;
+	}
 	int job_num;
 	string name;
-	long long phone_number;
+	string phone_number;
 };
 class Tool_Person {
 public:
+	Tool_Person()
+	{
+		Read_File();//Tool_Person构造函数实现对map的初始化
+	}
+	void Read_File() {
+		ifstream ifs("Table_Of_Information.txt", ios::in);
+		char line[1024] = { 0 };
+		for (int i = 0; ifs.getline(line, sizeof(line)); ++i) {
+			if (i == 0) {
+				continue;
+			}
+			stringstream word(line);
+			Person node;
+			word >> node.job_num;
+			word >> node.name;
+			word >> node.phone_number;
+			InsertNode(node);
+		}
+		ifs.clear();
+		ifs.close();
+	}
+
 	bool InsertNode(Person& node) {//添加
 		if (PerMap.find(node.job_num) != PerMap.end()) {
 			return false;
@@ -48,9 +82,9 @@ public:
 			return true;
 		}
 	}
-	bool SearchPerson_Phone(int phone_nums) {//按手机号查找
+	bool SearchPerson_Phone(string phone_nums) {//按手机号查找
 		for (auto& e : PerMap) {
-			if (e.second.phone_number == phone_nums) {
+			if (strcmp(e.second.phone_number.c_str(),phone_nums.c_str())==0) {
 				cout << "工号：" << e.first << "姓名：" << e.second.name << "手机号：" << phone_nums << endl;
 				return true;
 			}
@@ -71,7 +105,7 @@ public:
 	}
 	bool Write_to_File() {//文件写入
 		ofstream ofs;
-		ofs.open("Table_Of_Information");
+		ofs.open("Table_Of_Information.txt");
 		if (ofs) {
 			ofs << "工号    " << "    姓名    " << "    电话号码    " << endl;
 			for (auto& e : PerMap) {
@@ -85,6 +119,10 @@ public:
 		ofs.close();
 		return true;
 	}
-public:
+	map<int,Person>& GetPerMap()
+	{
+		return PerMap;
+	}
+private:
 	map<int, Person> PerMap;
 };

@@ -7,34 +7,28 @@
 #include"Person.h"
 #include"string.h"
 
-
 using namespace std;
-class Gift
+
+class Gift//奖品类
 {
 public:
-	Gift(string gift_name_) :gift_name(gift_name_)
+	Gift(string gift_name_,string gift_) :gift_name(gift_name_), gift(gift_)
 	{}
-	Person Luck_one()//抽一个奖
+	static Gift CreateGift()
 	{
-		Person p = YuanGong.PerMap[rand() % YuanGong.PerMap.size()];//生成员工范围内的随机数，记得主函数置种子
-		person.push_back(p);
-		return p;
+		string name, thing;
+		cout << "请输入奖品名称：";
+		cin >> name;
+		cout << "请输入奖品内容：";
+		cin >> thing;
+		return Gift(name, thing);
 	}
-	bool Luck_All()//一次完成抽奖活动
-	{
-		int n = total_gift, tmp;
-		while (n--)
-		{
-			Person p = YuanGong.PerMap[rand() % YuanGong.PerMap.size()];//生成员工范围内的随机数，记得主函数置种子
-			person.push_back(p);
-		}
-		return true;
-	}
-	bool Modify_Gift_Num(int n)//修改奖的得奖数目
+	
+	bool Modify_Gift_Num(int n)//修改这种奖品的数目
 	{
 		total_gift = n;
 	}
-	bool Write_Gift_inf_to_file()
+	bool Write_Gift_inf_to_file()//奖品详细信息写入文件
 	{
 		ofstream file;
 		file.open("Gift_inf");
@@ -47,7 +41,7 @@ public:
 			}
 		}
 	}
-	bool Write_to_Shell()
+	bool Write_to_Shell()//列出奖品详细信息
 	{
 		cout << "礼物" << gift_name << "该奖计划抽取总数  " << total_gift << "该奖品已经抽取的人数  " << person.size() << endl;
 		cout << "获奖人员信息" << endl;
@@ -55,25 +49,48 @@ public:
 		for (auto e : person){
 			cout << e.job_num << "	  " << e.name << "  " << e.phone_number << endl;
 		}
+		system("pause");
+		return true;
 	}
-public:
-	string gift_name;
-	int total_gift;//该奖项可抽取的数量
+	string& GetGiftName()
+	{
+		return gift_name;
+	}
+	size_t GetTotalGift()
+	{
+		return total_gift;
+	}
+	vector<Person>& GetPeople()
+	{
+		return person;
+	}
+private:
+	string gift_name;//奖项名称
+	string gift;//奖品
+	size_t total_gift;//该奖项可抽取的数量
 	vector<Person> person;//获奖人员信息
-	Tool_Person YuanGong;//map<int, Person> PerMap;
-};
+};//end of Gift
+
 class Gift_list{
+	friend class Gift;
 private:
 	vector<Gift> gift_;
 public:
-	bool InsertGift(Gift gift)//增加奖项
+	static Tool_Person tool_person;
+public:
+	vector<Gift>& Getgift()
+	{
+		return gift_;
+	}
+
+	void InsertGift(Gift gift)//增加奖项
 	{
 		gift_.push_back(gift);
 	}
-	int Search(Gift gift)
+	int Search(Gift gift)//查找奖项
 	{
 		for (size_t i = 0;i<gift_.size();i++){
-			if (strcmp(gift.gift_name.c_str(), gift_[i].gift_name.c_str()) == 0)
+			if (strcmp(gift.GetGiftName().c_str(), gift_[i].GetGiftName().c_str()) == 0)
 			{
 				cout << "找到该奖项，信息如下：" << endl;
 				gift_[i].Write_to_Shell();
@@ -85,16 +102,23 @@ public:
 	}
 	bool DelGift(Gift gift)//删除奖项
 	{
-		int pos = Search(gift);
-		for (int i = pos + 1; pos < gift_.size(); i++)
-			gift_[i - 1] = gift_[i];
-
-		gift_.pop_back();
+		size_t pos = Search(gift);
+		if (gift_.size() == 1)
+			gift_.clear();
+		else
+		{
+			for (size_t i = pos + 1; i < gift_.size(); i++)//0 1
+				gift_[i - 1] = gift_[i];
+			gift_.pop_back();
+		}
+		
+		return true;
 	}
-	void ShowGift()//列出奖项
+	void ShowGift()//列出所有奖项
 	{
 		for (auto e : gift_)
 			e.Write_to_Shell();
+		getchar();
 	}
 	bool Write_to_file()//保存奖项
 	{
@@ -103,8 +127,11 @@ public:
 		if (f){
 			f << "奖品名称	" << "该奖计划抽取总数		" << "该奖品已经抽取的人数  " << endl;
 			for (auto e : gift_){
-				f << e.gift_name << "		" << e.total_gift << "			" << e.person.size() << endl;
+				f << e.GetGiftName() << "		" << e.GetTotalGift() << "			" << e.GetPeople().size() << endl;
 			}
 		}
+		return true;
 	}
 };
+
+Tool_Person Gift_list::tool_person = Tool_Person();//int A::a=10;
