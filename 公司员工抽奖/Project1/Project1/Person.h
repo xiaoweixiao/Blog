@@ -23,9 +23,15 @@ struct Person {
 };
 class Tool_Person {
 public:
-	Tool_Person()
-	{
-		Read_File();//Tool_Person构造函数实现对map的初始化
+	Tool_Person(){}
+
+	void Update() {
+		cout << "更新存储文件：y，不更新：n" << endl;
+		getchar();
+		char c = getchar();
+		if (c == 'y') {
+			Write_to_File();
+		}
 	}
 	void Read_File() {
 		ifstream ifs("Table_Of_Information.txt", ios::in);
@@ -45,30 +51,36 @@ public:
 		ifs.close();
 	}
 
-	bool InsertNode(Person& node) {//添加
+	bool InsertNode(Person node) {//添加
 		if (PerMap.find(node.job_num) != PerMap.end()) {
+			cout << "工号冲突，无法加入" << endl;
 			return false;
 		}
 		else {
 			PerMap.insert(pair<int, Person>(node.job_num, node));
+			cout << "添加成功" << endl;
 		}
 		return true;
 	}
-	bool DeleteNode(Person& node) {//删除
-		if (PerMap.find(node.job_num) == PerMap.end()) {
+	bool DeleteNode(int n) {//删除
+		if (PerMap.find(n) == PerMap.end()) {
+			cout << "人物不存在，无法删除" << endl;
 			return false;
 		}
 		else {
-			PerMap.erase(node.job_num);
+			PerMap.erase(n);
+			cout << "删除成功" << endl;
 		}
 		return true;
 	}
-	bool ModifyNode(Person& node) {//修改
+	bool ModifyNode(Person node) {//修改
 		if (PerMap.find(node.job_num) == PerMap.end()) {
+			cout << "人物不存在，无法删除" << endl;
 			return false;
 		}
 		else {
 			PerMap[node.job_num] = node;
+			cout << "修改成功成功" << endl;
 		}
 		return true;
 	}
@@ -84,7 +96,7 @@ public:
 	}
 	bool SearchPerson_Phone(string phone_nums) {//按手机号查找
 		for (auto& e : PerMap) {
-			if (strcmp(e.second.phone_number.c_str(),phone_nums.c_str())==0) {
+			if (strcmp(e.second.phone_number.c_str(), phone_nums.c_str()) == 0) {
 				cout << "工号：" << e.first << "姓名：" << e.second.name << "手机号：" << phone_nums << endl;
 				return true;
 			}
@@ -119,7 +131,7 @@ public:
 		ofs.close();
 		return true;
 	}
-	map<int,Person>& GetPerMap()
+	map<int, Person>& GetPerMap()
 	{
 		return PerMap;
 	}
