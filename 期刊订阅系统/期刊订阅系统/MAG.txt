@@ -1,0 +1,7 @@
+1	Mary		1	2
+2	VIVI		2	2
+3	Fashion		1	1
+4	beaty		2	1
+5	man		1	1
+6	city		4	3
+7	guard		4	1
